@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
@@ -38,5 +39,13 @@ public class showActivity extends AppCompatActivity {
         RecyclerView rv = view.findViewById(R.id.itemRecyclerView);
         rv.setAdapter(itemAdapter);
         rv.setLayoutManager(linearLayoutManager);
+
+        binding.addItemButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), createActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
